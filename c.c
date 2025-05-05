@@ -2,8 +2,8 @@
 // if the requested floor is the same as the current floor then print already here otherwise move the elevator nd calculate 
 // 1. the movment direction upwards  and the number of floor moved , energy usage 2 units per floor used up 
 // if the movement is greather than 10 floors print cooling delay pls wait 
-// #include <stdio.h>
-// #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // void processElevatorRequest(int currentFloor, int requestedFloor) {
 //     // Check for invalid request
@@ -64,41 +64,41 @@
 //     return true;
 // }
 
-// int main() {
-//     int num;
-//     int score = 0;
+int main() {
+    int num;
+    int score = 0;
 
-//     printf("Enter numbers for lock pattern verification (negative to stop):\n");
+    printf("Enter numbers for lock pattern verification (negative to stop):\n");
 
-//     while (1) {
-//         scanf("%d", &num);
+    while (1) {
+        scanf("%d", &num);
 
-//         if (num < 0) {
-//             printf("Negative number entered. System stopped.\n");
-//             break;
-//         }
+        if (num < 0) {
+            printf("Negative number entered. System stopped.\n");
+            break;
+        }
 
-//         if (num == 0) {
-//             // Skip 0
-//             continue;
-//         }
+        if (num == 0) {
+            // Skip 0
+            continue;
+        }
 
-//         if (num % 2 == 0 && num % 4 == 0) {
-//             score += 3;
-//         } else if (num % 2 != 0 && isPrime(num)) {
-//             score += 5;
-//         }
-//     }
+        if (num % 2 == 0 && num % 4 == 0) {
+            score += 3;
+        } else if (num % 2 != 0 && isPrime(num)) {
+            score += 5;
+        }
+    }
 
-//     printf("Total Score: %d\n", score);
+    printf("Total Score: %d\n", score);
 
-//     if (score >= 30) {
-//         printf("Unlock\n");
-//     } else {
-//         printf("Access Denied, Threat Detected\n");
-//     } 
-//     return 0;
-// }
+    if (score >= 30) {
+        printf("Unlock\n");
+    } else {
+        printf("Access Denied, Threat Detected\n");
+    } 
+    return 0;
+}
 // #include <stdio.h>
 // int main ()
 // {
