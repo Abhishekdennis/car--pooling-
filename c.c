@@ -99,3 +99,83 @@
 //     } 
 //     return 0;
 // }
+// #include <stdio.h>
+// int main ()
+// {
+// int a[5] = {5, 1, 15, 20, 25};
+// int i, j, m;
+
+// i = ++a[1];  
+// j = a[1]++;  
+// m = a[i++];  
+// printf("%d",i);
+// printf("%d",j);
+// printf("%d",m);
+// }
+// #include <stdio.h>
+// int main() {
+//     int n, m;
+//     printf("Enter number of candidates: ");
+//     scanf("%d", &n);
+//     int candidate_ids[n];
+//     int vote_count[n];
+//     printf("Enter candidate IDs:\n");
+//     for (int i = 0; i < n; i++) {
+//         scanf("%d", &candidate_ids[i]);
+//         vote_count[i] = 0;
+//     }
+//     printf("Enter number of votes: ");
+//     scanf("%d", &m);
+//     int invalid_votes = 0;
+//     printf("Enter the votes (candidate IDs):\n");
+//     for (int i = 0; i < m; i++) {
+//         int vote;
+//         scanf("%d", &vote);
+//         int valid = 0;
+//         for (int j = 0; j < n; j++) {
+//             if (vote == candidate_ids[j]) {
+//                 vote_count[j]++;
+//                 valid = 1;
+//                 break;
+//             }
+//         }
+//         if (!valid) {
+//             invalid_votes++;
+//         }
+//     }
+//     printf("\nVote count:\n");
+//     for (int i = 0; i < n; i++) {
+//         printf("%d - %d\n", candidate_ids[i], vote_count[i]);
+//     }
+//     printf("Invalid votes: %d\n", invalid_votes);
+//     int max_votes = -1, winner_index = -1, tie = 0;
+//     for (int i = 0; i < n; i++) {
+//         if (vote_count[i] > max_votes) {
+//             max_votes = vote_count[i];
+//             winner_index = i;
+//             tie = 0;
+//         } else if (vote_count[i] == max_votes) {
+//             tie = 1;
+//         }
+//     }
+//     if (tie) {
+//         printf("Result: It's a tie\n");
+//     } else {
+//         printf("Winner: %d\n", candidate_ids[winner_index]);
+//     }
+//     return 0;
+// }
+#include<stdio.h>
+#include<math.h>
+int main (){
+    int rows , columns;
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &rows, &columns);
+    int matrix[rows][columns];
+    printf("Enter the elements of the matrix:\n");
+    for (int i =0; i < rows; i++){
+        for (int j = 0; j < columns; j++){
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+}
