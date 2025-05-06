@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Car Pooling Application</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="css2.css" />
+</head>
+<body>
+  <!-- Liquid Background Canvas -->
+  <canvas id="liquidCanvas"></canvas>
+
+  <!-- Header / Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">CarPoolX</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="authBtn" class="auth-btn">Login / Sign Up</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Ride Smart, Save More</h1>
+      <p>
+        Join our community of riders. Experience fast, reliable, and affordable car pooling like never before.
+      </p>
+      <button id="getStartedBtn" class="animated-btn">Get Started</button>
+    </div>
+    <!-- Wave Animation -->
+    <div class="wave">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d="M-16.51,67.57 C150.00,150.00 349.99,-49.98 517.58,90.32 L500.00,150.00 L0.00,150.00 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <img src="images/fast.svg" alt="Fast Rides" />
+        <h3>Fast Rides</h3>
+        <p>Get picked up within minutes.</p>
+      </div>
+      <div class="card">
+        <img src="images/save.svg" alt="Affordable" />
+        <h3>Affordable</h3>
+        <p>Cost-effective travel options.</p>
+      </div>
+      <div class="card">
+        <img src="images/safe.svg" alt="Safe" />
+        <h3>Safe &amp; Secure</h3>
+        <p>Your safety is our priority.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Riders Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>"CarPoolX made my daily commute stress-free and affordable."</p>
+        <h4>- Alex</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Fast, safe, and always on time. Highly recommended!"</p>
+        <h4>- Maria</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Switching between car and bike rides keeps my routine dynamic."</p>
+        <h4>- Jordan</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>How do I book a ride?</h3>
+      <p>You can book a ride by signing up and selecting your pickup and drop locations.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is it safe to share rides?</h3>
+      <p>Yes. Our drivers are thoroughly vetted and we use real-time tracking to ensure safety.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What payment methods are accepted?</h3>
+      <p>We accept all major credit cards, debit cards, and digital wallets.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <p>$5 per ride</p>
+        <ul>
+          <li>Standard Car</li>
+          <li>Shared Ride</li>
+          <li>Live Tracking</li>
+        </ul>
+        <button class="animated-btn">Choose Plan</button>
+      </div>
+      <div class="pricing-card featured">
+        <h3>Premium</h3>
+        <p>$10 per ride</p>
+        <ul>
+          <li>Luxury Car</li>
+          <li>Exclusive Ride</li>
+          <li>Priority Support</li>
+        </ul>
+        <button class="animated-btn">Choose Plan</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Business</h3>
+        <p>$15 per ride</p>
+        <ul>
+          <li>Executive Car</li>
+          <li>Corporate Offers</li>
+          <li>Dedicated Support</li>
+        </ul>
+        <button class="animated-btn">Choose Plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Your message" required></textarea>
+      </div>
+      <button type="submit" class="animated-btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 CarPoolX. All rights reserved.</p>
+  </footer>
+
+  <!-- Authentication Modal -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="auth-tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="signup">Sign Up</button>
+      </div>
+      <div class="tab-content active" id="login">
+        <form id="loginForm">
+          <h2>Login</h2>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div class="tab-content" id="signup">
+        <form id="signupForm">
+          <h2>Sign Up</h2>
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to external JavaScript file -->
+  <script src="script2.js"></script>
+</body>
+</html>
