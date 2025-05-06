@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Pooling Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Car Pooling Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Welcome to our Car Pooling Service</h2>
+            <p>Find a ride or offer a ride to save money and reduce traffic.</p>
+        </section>
+
+        <section>
+            <h2>Search for a Ride</h2>
+            <form>
+                <input type="text" placeholder="From">
+                <input type="text" placeholder="To">
+                <input type="date">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Offer a Ride</h2>
+            <form>
+                <input type="text" placeholder="From">
+                <input type="text" placeholder="To">
+                <input type="date">
+                <button type="submit">Offer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2022 Car Pooling Website. All rights reserved.</p>
+    </footer>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form input {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Your JavaScript code here
+        // Example: Add a click event listener to the search button
+        const searchButton = document.querySelector('button[type="submit"]');
+        searchButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const fromInput = document.querySelector('input[placeholder="From"]');
+            const toInput = document.querySelector('input[placeholder="To"]');
+            const dateInput = document.querySelector('input[type="date"]');
+            
+            // Perform some action with the input values
+            console.log('From:', fromInput.value);
+            console.log('To:', toInput.value);
+            console.log('Date:', dateInput.value);
+        });
+    </script>
+    <style>
+        /* Additional styles for more colors */
+        section:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        section:nth-child(even) {
+            background-color: #e6e6e6;
+        }
+
+        form input[type="text"] {
+            background-color: #f9f9f9;
+        }
+
+        form input[type="date"] {
+            background-color: #f9f9f9;
+        }
+
+        form button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+    
+</body>
+</html>
