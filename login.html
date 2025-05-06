@@ -33,6 +33,24 @@
             <img src="profile.jpg" alt="Profile Picture">
         </div>
     </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the values from the input fields
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Perform validation or other actions
+            if (username === 'admin' && password === 'password') {
+                alert('Login successful');
+                // Redirect to another page
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
