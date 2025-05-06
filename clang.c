@@ -171,4 +171,29 @@
 //     printf("Reversed string: %s\n", reversed);
 //     free(reversed);
 //     return 0;
+<<<<<<< HEAD
 // }
+=======
+// }
+
+
+HOW ARE YOU DOING THERE!!!
+// #include <stdio.h>
+// int main(){
+//     int a;
+//     printf("Enter the number: ");
+//     scanf("%d", &a);
+//     if (a%5==0 && a%3==0)
+//     {
+//         printf("divisible by 5 and 3");
+//     }
+//     else
+//     {
+//         printf("Not divisible by 5 and 3");
+//     }
+    
+//     return 0;
+// }
+
+// this the changes which I am doing
+>>>>>>> 4f5e14b (Some fixes in the js)
