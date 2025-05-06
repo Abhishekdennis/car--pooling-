@@ -148,5 +148,27 @@
 //     return 0;
 // }
 
-
-HOW ARE YOU DOING THERE!!!
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+    int len=0;
+    while (str[len] != '\0') {
+        len++;
+    }
+    printf("Length of the string: %d\n", len);
+    char *reversed = (char *)malloc((len + 1) * sizeof(char));
+    if (reversed == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    for (int i = 0; i < len; i++) {
+        reversed[i] = str[len - 1 - i];
+    }
+    reversed[len] = '\0';
+    printf("Reversed string: %s\n", reversed);
+    free(reversed);
+    return 0;
+}
