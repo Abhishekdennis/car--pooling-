@@ -198,3 +198,4 @@ HOW ARE YOU DOING THERE!!!
 // this the changes which I am doing
 >>>>>>> 4f5e14b (Some fixes in the js)
 // now I will add some js too
+// now I will add some js too
