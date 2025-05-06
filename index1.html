@@ -114,6 +114,21 @@
             text-align: center;
         }
     </style>
-    
+    <script>
+        // Your JavaScript code here
+        // Example: Add a click event listener to the search button
+        const searchButton = document.querySelector('button[type="submit"]');
+        searchButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const fromInput = document.querySelector('input[placeholder="From"]');
+            const toInput = document.querySelector('input[placeholder="To"]');
+            const dateInput = document.querySelector('input[type="date"]');
+            
+            // Perform some action with the input values
+            console.log('From:', fromInput.value);
+            console.log('To:', toInput.value);
+            console.log('Date:', dateInput.value);
+        });
+    </script>
 </body>
 </html>
