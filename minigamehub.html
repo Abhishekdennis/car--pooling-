@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Games Hub</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      background-color: #1e90ff;
+      width: 100%;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    nav button:hover {
+      background-color: #0056b3;
+    }
+    .game-container {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+    }
+    .active {
+      display: block;
+    }
+    #game-board {
+      display: grid;
+      gap: 10px;
+      justify-content: center;
+    }
+    .card {
+      width: 80px;
+      height: 80px;
+      background: #1e90ff;
+      color: white;
+      font-size: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 10px;
+      user-select: none;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .card.flipped, .card.matched {
+      background: #ffffff;
+      color: #1e90ff;
+    }
+    #restart, #rps-restart {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #restart:hover, #rps-restart:hover {
+      background-color: #218838;
+    }
+    .info {
+      margin: 10px 0;
+    }
+    #message {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #28a745;
+    }
+    #rps-message {
+      font-size: 18px;
+      margin: 10px;
+    }
+    #rps-controls button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+    }
+    #rps-controls button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mini Games Hub</h1>
+  </header>
+  <nav>
+    <button onclick="switchGame('memory')">Memory Match</button>
+    <button onclick="switchGame('rps')">Rock Paper Scissors</button>
+  </nav>
+  <div id="memory" class="game-container active">
+    <h2>Memory Match</h2>
+    <div class="info">Time: <span id="timer">0</span> seconds</div>
+    <div class="info">Moves: <span id="moves">0</span></div>
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="4">Easy (4x4)</option>
+      <option value="6">Medium (6x6)</option>
+      <option value="8">Hard (8x8)</option>
+    </select>
+    <button id="restart">Restart</button>
+    <div id="game-board"></div>
+    <div id="message"></div>
+  </div>
+  <div id="rps" class="game-container">
+    <h2>Rock Paper Scissors</h2>
+    <div id="rps-controls">
+      <button onclick="playRPS('rock')">🪨 Rock</button>
+      <button onclick="playRPS('paper')">📄 Paper</button>
+      <button onclick="playRPS('scissors')">✂️ Scissors</button>
+    </div>
+    <div id="rps-message"></div>
+    <button id="rps-restart" onclick="restartRPS()">Restart</button>
+  </div>
+
+  <script>
+    function switchGame(gameId) {
+      document.querySelectorAll('.game-container').forEach(g => g.classList.remove('active'));
+      document.getElementById(gameId).classList.add('active');
+    }
+
+    // Memory Game
+    const board = document.getElementById('game-board');
+    const timerEl = document.getElementById('timer');
+    const movesEl = document.getElementById('moves');
+    const messageEl = document.getElementById('message');
+    const restartBtn = document.getElementById('restart');
+    const difficultySelect = document.getElementById('difficulty');
+
+    let symbolsBase = ['🍎','🍌','🍇','🍉','🍓','🍒','🍍','🥝','🥥','🍑','🍊','🍈','🍋','🥭','🥑','🍅','🌽','🥕','🍆','🥔','🍄','🥒','🧄','🧅','🍠','🫑','🌶️','🥬','🥦','🧇','🍞','🥐','🍩'];
+    let timer = 0, timerInterval, moves = 0, firstCard = null, secondCard = null, lockBoard = false, matchCount = 0, gridSize = 4;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      timer = 0;
+      timerEl.textContent = timer;
+      timerInterval = setInterval(() => {
+        timer++;
+        timerEl.textContent = timer;
+      }, 1000);
+    }
+
+    function resetGame() {
+      board.innerHTML = '';
+      messageEl.textContent = '';
+      clearInterval(timerInterval);
+      startTimer();
+      moves = 0;
+      matchCount = 0;
+      movesEl.textContent = moves;
+      firstCard = null;
+      secondCard = null;
+      lockBoard = false;
+      gridSize = parseInt(difficultySelect.value);
+      board.style.gridTemplateColumns = `repeat(${gridSize}, 80px)`;
+      let totalCards = gridSize * gridSize;
+      let symbols = shuffle([...symbolsBase].slice(0, totalCards / 2));
+      let cards = shuffle([...symbols, ...symbols]);
+      cards.forEach(symbol => {
+        const card = createCard(symbol);
+        board.appendChild(card);
+      });
+    }
+
+    function createCard(symbol) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.symbol = symbol;
+      card.innerText = '';
+
+      card.addEventListener('click', () => {
+        if (lockBoard || card === firstCard || card.classList.contains('matched')) return;
+
+        card.classList.add('flipped');
+        card.innerText = symbol;
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          lockBoard = true;
+          moves++;
+          movesEl.textContent = moves;
+
+          if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            matchCount++;
+            if (matchCount === (gridSize * gridSize) / 2) {
+              clearInterval(timerInterval);
+              messageEl.textContent = `🎉 You won in ${timer} seconds and ${moves} moves!`;
+              localStorage.setItem('memory_high_score', JSON.stringify({ timer, moves }));
+            }
+            resetTurn();
+          } else {
+            setTimeout(() => {
+              firstCard.classList.remove('flipped');
+              secondCard.classList.remove('flipped');
+              firstCard.innerText = '';
+              secondCard.innerText = '';
+              resetTurn();
+            }, 1000);
+          }
+        }
+      });
+
+      return card;
+    }
+
+    function resetTurn() {
+      [firstCard, secondCard] = [null, null];
+      lockBoard = false;
+    }
+
+    restartBtn.addEventListener('click', resetGame);
+    difficultySelect.addEventListener('change', resetGame);
+    window.onload = resetGame;
+
+    // Rock Paper Scissors Game
+    const rpsMessage = document.getElementById('rps-message');
+    function playRPS(userChoice) {
+      const choices = ['rock', 'paper', 'scissors'];
+      const compChoice = choices[Math.floor(Math.random() * 3)];
+      let result = '';
+      if (userChoice === compChoice) result = "It's a draw!";
+      else if ((userChoice === 'rock' && compChoice === 'scissors') ||
+               (userChoice === 'paper' && compChoice === 'rock') ||
+               (userChoice === 'scissors' && compChoice === 'paper')) {
+        result = "You win!";
+      } else {
+        result = "You lose!";
+      }
+      rpsMessage.innerHTML = `You chose ${userChoice}, computer chose ${compChoice}.<br>${result}`;
+    }
+    function restartRPS() {
+      rpsMessage.innerHTML = '';
+    }
+  </script>
+</body>
+</html>
