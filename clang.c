@@ -199,3 +199,21 @@ HOW ARE YOU DOING THERE!!!
 >>>>>>> 4f5e14b (Some fixes in the js)
 // now I will add some js too
 // now I will add some js too
+int main(){
+    int num=234986;
+    int a=num%10;
+    int b=num;
+    while (b>10){
+        b/=10;
+
+    }
+    printf("%d", a);
+    printf("%d", b);
+    int count =0;
+    while (num!=10){
+        count++;
+        num/=10;
+        printf("%d", count);
+
+    }
+}
