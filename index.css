@@ -2,7 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* ----------------------------
+   Base layer: Define CSS variables for color theming
+----------------------------- */
 @layer base {
   :root {
     --background: 240 10% 3.9%;
