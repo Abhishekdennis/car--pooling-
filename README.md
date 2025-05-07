@@ -1,13 +1,5 @@
-# 🚗 Welcome to Your Lovable Project
-
-Welcome to your **Lovable project**! This README provides everything you need to get started, whether you're using the Lovable platform, your local IDE, or GitHub. It also includes project structure, development, and deployment guidelines.
-
----
-
 ## 📌 Project Information
 
-- **Project URL**: [https://lovable.dev/projects/03ed9bca-2521-4af0-b6c3-8aaa40a815aa](https://lovable.dev/projects/03ed9bca-2521-4af0-b6c3-8aaa40a815aa)
-- **Status**: 🟢 Active
 - **Tech Stack**: Vite, TypeScript, React, shadcn/ui, Tailwind CSS
 
 ---
@@ -16,13 +8,8 @@ Welcome to your **Lovable project**! This README provides everything you need to
 
 There are multiple ways to modify your project depending on your preferences:
 
-### 🧠 Option 1: Use Lovable (Recommended)
-
-The fastest and easiest way to make changes is through the Lovable interface.
-
-1. Visit your [Lovable Project](https://lovable.dev/projects/03ed9bca-2521-4af0-b6c3-8aaa40a815aa)
-2. Start prompting and making changes instantly.
-3. Changes are automatically committed to your Git repository.
+1. Start prompting and making changes instantly.
+2. Changes are automatically committed to your Git repository.
 
 ---
 
