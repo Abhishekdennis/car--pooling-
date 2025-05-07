@@ -1,4 +1,4 @@
-
+/* Load Tailwind's base, components, and utilities styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
