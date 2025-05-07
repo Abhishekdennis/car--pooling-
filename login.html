@@ -1,142 +1,180 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Defines the document type as HTML5 -->
 <html>
 <head>
-    <title>Car Pooling - Login</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Car Pooling - Login</title> <!-- Title of the webpage -->
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- External CSS file (though internal styles are also used) -->
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
+    <div class="container"> <!-- Container for centering and styling the form -->
+        <h1>Login</h1> <!-- Main heading -->
+
+        <!-- Login Form Starts -->
         <form>
+            <!-- Username field -->
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
+
+            <!-- Password field -->
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+
+            <!-- Submit button -->
             <button type="submit">Login</button>
         </form>
+        <!-- Login Form Ends -->
+
+        <!-- Links for account creation, password reset, and support -->
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         <p>Forgot your password? <a href="forgot-password.html">Reset password</a></p>
+
+        <!-- Remember me checkbox -->
         <p>Remember me <input type="checkbox" name="remember"></p>
+
+        <!-- Help link -->
         <p>Need help? <a href="help.html">Contact support</a></p>
+
+        <!-- Footer section -->
         <footer>
             <p>&copy; 2022 Car Pooling. All rights reserved.</p>
         </footer>
+
+        <!-- Navigation links -->
         <nav>
             <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Home</a></li> <!-- Link to Home page -->
+                <li><a href="about.html">About</a></li> <!-- Link to About page -->
+                <li><a href="services.html">Services</a></li> <!-- Link to Services page -->
+                <li><a href="contact.html">Contact</a></li> <!-- Link to Contact page -->
             </ul>
         </nav>
+
+        <!-- Profile picture section -->
         <div class="profile-picture">
-            <img src="profile.jpg" alt="Profile Picture">
+            <img src="profile.jpg" alt="Profile Picture"> <!-- Static profile image -->
         </div>
     </div>
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
 
-            // Get the values from the input fields
+    <!-- Inline JavaScript for form validation -->
+    <script>
+        // Adding event listener to handle form submission
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the default form submission behavior
+
+            // Get input values
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            // Perform validation or other actions
+            // Basic login check (not secure for production)
             if (username === 'admin' && password === 'password') {
-                alert('Login successful');
-                // Redirect to another page
-                window.location.href = 'dashboard.html';
+                alert('Login successful'); // Show success message
+                window.location.href = 'dashboard.html'; // Redirect on success
             } else {
-                alert('Invalid username or password');
+                alert('Invalid username or password'); // Show error message
             }
         });
     </script>
+
+    <!-- Internal CSS for layout and styling -->
     <style>
+        /* Basic page styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #f2f2f2; /* Light gray background */
         }
 
+        /* Form container styling */
         .container {
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 400px; /* Limits width */
+            margin: 0 auto; /* Centers the form */
             padding: 20px;
-            background-color: #fff;
+            background-color: #fff; /* White background */
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
+        /* Heading styling */
         h1 {
             text-align: center;
-            color: #333;
+            color: #333; /* Dark gray text */
         }
 
+        /* Form margin from heading */
         form {
             margin-top: 20px;
         }
 
+        /* Labels for input fields */
         label {
             display: block;
             margin-bottom: 5px;
             color: #333;
         }
 
+        /* Input fields styling */
         input[type="text"],
         input[type="password"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #ccc; /* Light border */
             border-radius: 5px;
             margin-bottom: 10px;
         }
 
+        /* Submit button styling */
         button[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Green button */
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
+        /* Paragraph styling */
         p {
             margin-top: 10px;
-            color: #666;
+            color: #666; /* Medium gray text */
         }
 
+        /* Link styling */
         a {
             color: #4CAF50;
             text-decoration: none;
         }
 
+        /* Footer text styling */
         footer {
             margin-top: 20px;
             text-align: center;
-            color: #999;
+            color: #999; /* Light gray */
         }
 
+        /* Navigation styling */
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            display: flex;
+            display: flex; /* Horizontal layout */
             justify-content: center;
         }
 
+        /* Each nav item spacing */
         nav ul li {
             margin: 0 10px;
         }
 
+        /* Profile picture wrapper */
         .profile-picture {
             text-align: center;
             margin-top: 20px;
         }
 
+        /* Profile picture styling */
         .profile-picture img {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
+            border-radius: 50%; /* Makes it a circle */
         }
     </style>
 </body>
