@@ -1,9 +1,12 @@
-#root {
+#root {/* Root container styling: centers content and sets max width */
+
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
+/* Logo class: base styling for logos */
 
 .logo {
   height: 6em;
@@ -11,12 +14,21 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
+/* Hover effect for all logos */
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+/* Specific hover effect for React logo */
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
+/* Keyframes for spinning animation */
+
 
 @keyframes logo-spin {
   from {
