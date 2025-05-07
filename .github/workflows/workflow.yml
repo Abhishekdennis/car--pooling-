@@ -1,0 +1,45 @@
+project:
+  name: CarPoolConnect
+  description: >
+    A web-based platform that connects drivers and passengers to share rides,
+    helping reduce traffic congestion, travel costs, and environmental impact.
+
+  goals:
+    - Promote eco-friendly commuting
+    - Reduce individual travel expenses
+    - Enable social connectivity through ride sharing
+    - Provide a secure and user-friendly carpooling experience
+
+  features:
+    - User registration and authentication
+    - Driver and passenger profiles
+    - Ride creation and booking system
+    - Real-time ride tracking (optional via maps)
+    - Ratings and reviews
+    - Chat or messaging system
+    - Admin dashboard for monitoring users and rides
+
+  tech_stack:
+    frontend: React.js
+    backend: Node.js with Express
+    database: MongoDB
+    authentication: JWT (JSON Web Tokens)
+    hosting: Vercel (frontend), Render or Heroku (backend)
+    optional:
+      - Google Maps API for route and location services
+      - Firebase for real-time chat
+
+  team:
+    - name: You
+      role: Full Stack Developer
+    - name: [Add team members if any]
+      role: [Their roles]
+
+  timeline:
+    phase_1: Requirements gathering & design (1 week)
+    phase_2: Frontend & backend development (2–3 weeks)
+    phase_3: Testing & debugging (1 week)
+    phase_4: Deployment & feedback (1 week)
+
+  status: In Progress
+hiu
